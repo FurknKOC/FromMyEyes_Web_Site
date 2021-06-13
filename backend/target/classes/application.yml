@@ -1,0 +1,23 @@
+server:
+  port: ${SERVER_PORT:8083}
+spring:
+  application:
+    name: frommyeyes #FromMyEyes
+  profiles:
+    active: ${SPRING_PROFILE:local}
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/frommyeyes}
+    username: ${DATASOURCE_USERNAME:postgres}
+    password: ${DATASOURCE_PASSWORD:123}
+
+  jpa:
+    properties:
+      javax.persistence.sharedCache.mode: ALL
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: ${DEFAULT_SCHEMA:public}
+
+    hibernate:
+      ddl-auto: update
+
+    show-sql: true
